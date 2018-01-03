@@ -10,7 +10,8 @@ class Gigasecond {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         if let formattedDate = dateFormatter.date(from: date) {
-            description = dateFormatter.string(from: formattedDate.addingTimeInterval(1_000_000_000.0))
+            description = dateFormatter
+                .string(from: formattedDate.addingTimeInterval(1_000_000_000.0))
         }
     }
 }
