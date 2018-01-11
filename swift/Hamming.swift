@@ -5,5 +5,13 @@ class Hamming {
         return a.enumerated().flatMap {
             return b[b.index(b.startIndex, offsetBy: $0)] != $1 ? 1 : nil
         }.count
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        
+//        return zip(a, b).filter { $0 != $1 }.count
+>>>>>>> ab4defa80b4d78651a6e84f3cd4ca84e5a87fc57
+>>>>>>> refs/remotes/origin/master
     }
 }
