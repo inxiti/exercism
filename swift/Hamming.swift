@@ -4,6 +4,6 @@ class Hamming {
 
         return a.enumerated().flatMap {
             return b[b.index(b.startIndex, offsetBy: $0)] != $1 ? 1 : nil
-        }.reduce(0, +)
+        }.count
     }
 }
