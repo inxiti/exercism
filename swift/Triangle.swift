@@ -1,10 +1,10 @@
 class Triangle {
     let kind: String
     let triangleKind = (
-        Equilateral:"Equilateral",
-        Isosceles:"Isosceles",
-        Scalene:"Scalene",
-        ErrorKind:"ErrorKind"
+        Equilateral:    "Equilateral",
+        Isosceles:      "Isosceles",
+        Scalene:        "Scalene",
+        ErrorKind:      "ErrorKind"
     )
     
     init(_ a: Double, _ b: Double, _ c: Double) {
