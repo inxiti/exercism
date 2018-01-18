@@ -20,16 +20,10 @@ class Clock: Equatable, CustomStringConvertible {
     }
     
     func subtract(minutes m: Int) -> Clock {
-        _minutes -= m
-        
-        return self
+        return add(minutes: -m)
     }
     
     static func ==(_ lhs: Clock, _ rhs: Clock) -> Bool {
         return lhs.description == rhs.description
-    }
-    
-    static func !=(_ lhs: Clock, _ rhs: Clock) -> Bool {
-        return lhs.description != rhs.description
     }
 }
