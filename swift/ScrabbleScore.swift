@@ -15,8 +15,6 @@ class Scrabble {
     }
     
     class func score(_ w: String) -> Int {
-        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-        return w.uppercased().filter { letters.contains($0) }.flatMap { points[$0] }.reduce(0, +)
+        return w.uppercased().reduce(0) { $0 + (points[$1] ?? 0) }
     }
 }
