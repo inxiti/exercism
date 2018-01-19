@@ -15,6 +15,8 @@ class Robot {
                     
                     _name = "\(letters[index])\(letters[index + 1])\(number)"
                 } while _names.contains(_name)
+                
+                _names.insert(_name)
             }
             
             return _name
