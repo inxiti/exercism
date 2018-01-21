@@ -1,8 +1,6 @@
 class NumberClassifier {
     enum Classification {
-        case abundant
-        case deficient
-        case perfect
+        case abundant, deficient, perfect
     }
     
     let classification: Classification
