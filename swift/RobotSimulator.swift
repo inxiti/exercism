@@ -37,23 +37,19 @@ class SimulatedRobot {
     }
     
     func advance() {
-        var (x, y) = (coordinates[0], coordinates[1])
-        
         switch bearing {
-        case .east: x += 1
-        case .north: y += 1
-        case .south: y -= 1
-        case .west: x -= 1
+        case .east: coordinates[0] += 1
+        case .north: coordinates[1] += 1
+        case .south: coordinates[1] -= 1
+        case .west: coordinates[0] -= 1
         }
-        
-        coordinates = [x, y]
     }
     
     func place(x: Int, y: Int, direction d: Direction) {
         bearing = d
         coordinates = [x, y]
     }
-
+    
     func instructions(_ ins: String) -> [Instructions] {
         return ins.map {
             switch $0 {
@@ -66,9 +62,7 @@ class SimulatedRobot {
     
     func evaluate(_ s: String) {
         s.forEach {
-            let ins = instructions(String($0))
-            
-            ins.forEach {
+            instructions(String($0)).forEach {
                 switch $0 {
                 case .turnLeft: turnLeft()
                 case .turnRight: turnRight()
