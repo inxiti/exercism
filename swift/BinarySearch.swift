@@ -14,20 +14,16 @@ class BinarySearch {
     }
     
     func searchFor(_ n: Int) -> Int? {
-        var position = middle
-        
-        func find(_ l: [Int], middle i: Int) -> Int? {
-            guard !l.isEmpty else { return nil }
-            if l.count == 2 && l[1] == n { position += 1 }
-            guard l[i] != n else { return n }
+        func findWithin(_ s: Int, _ e: Int) -> Int? {
+            let position = s + (e - s) / 2
             
-            let list = n < l[i] ? l[..<i] : l[(i + 1)...]
-            let index = list.count / 2
-            position = n < l[i] ? position - index - 1: position + index + 1
-            
-            return find(Array(list), middle: index)
+            guard position != 0 else { return nil }
+
+            if list[position] == n { return position }
+            if list[position] <  n { return findWithin(position + 1, e) }
+            else { return findWithin(s, position) }
         }
         
-        return find(list, middle: middle) != nil ? position : nil
+        return findWithin(0, list.count)
     }
 }
