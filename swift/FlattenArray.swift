@@ -3,7 +3,7 @@ func flattenArray<T>(_ a: [Any]) -> [T] {
     
     for element in a {
         if let value = element as? T { result.append(value) }
-        if let array = element as? [Any] { result += flattenArray(array) }
+        if let array = element as? [Any] { result.append(contentsOf: flattenArray(array)) }
     }
     
     return result
