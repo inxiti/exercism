@@ -11,6 +11,6 @@ class WordCount {
     
     func count() -> Dictionary<String, Int> {
         return words
-            .reduce(into: [String: Int]()) { $0[String($1)] = ($0[String($1)] ?? 0) + 1 }
+            .reduce(into: [:]) { $0[String($1)] = ($0[String($1)] ?? 0) + 1 }
     }
 }
