@@ -10,7 +10,7 @@ class TwelveDaysSong {
             "eight Maids-a-Milking", "nine Ladies Dancing", "ten Lords-a-Leaping",
             "eleven Pipers Piping", "twelve Drummers Drumming"
         ]
-        let giftsGiven = (0..<v).reversed().flatMap { ", \(gifts[$0])" }.joined()
+        let giftsGiven = (0..<v).reversed().map { ", \(gifts[$0])" }.joined()
         
         return v == 1
             ? "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
