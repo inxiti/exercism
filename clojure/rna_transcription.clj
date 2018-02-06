@@ -1,5 +1,4 @@
-(ns rna-transcription
-  (:require [clojure.string :as string]))
+(ns rna-transcription)
 
 (defn convert
   "Transcribe DNA nucleotide to RNA complement."
