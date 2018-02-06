@@ -20,7 +20,7 @@ class TwelveDaysSong {
     class func verses(_ b: Int, _ e: Int) -> String {
         return (b...e).map { "\(verse($0))\n" }.joined()
     }
-    
+
     class func sing() -> String {
         return verses(1, 12)
     }
