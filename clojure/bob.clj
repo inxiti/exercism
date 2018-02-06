@@ -1,5 +1,5 @@
-(ns bob)
-(require '[clojure.string :as string])
+(ns bob
+  (:require [clojure.string :as string]))
 
 (defn response-for
   "Determines, and returns Bob's response in a conversation."
