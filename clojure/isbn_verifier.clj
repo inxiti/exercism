@@ -10,5 +10,5 @@
           valid   (filter #(string/includes? "0123456789X" (str %)) lst)
           isbn'   (map #(Integer/parseInt %) (replace {"X" "10"} valid))
           r       (range 0 (count isbn'))
-          result  (for [i r] (* (nth isbn' i) (- 10 i)))]
-      (== (mod (reduce + result) 11) 0))))
+          result  (mod (reduce + (for [i r] (* (nth isbn' i) (- 10 i)))) 11)]
+      (== result 0))))
