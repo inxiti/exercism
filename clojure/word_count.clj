@@ -7,6 +7,5 @@
   (-> w
       (string/lower-case)
       (string/replace #"[^a-zA-Z0-9 ]" "")
-      (string/split #" ")
-      (#(remove string/blank? %))
+      (string/split #"\s+")
       (frequencies)))
