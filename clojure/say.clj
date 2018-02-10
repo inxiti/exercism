@@ -16,31 +16,31 @@
             mapping  (if ds tens one-through-twenty)
             fmt      "%s %s"
             position (cond
-                        ds                          (str fmt "-")
-                        (<  num 20)                 "%s-%s"
-                        (== more-than 100000000000) (str fmt " hundred")
-                        (== more-than   1000000000) (str fmt " billion")
-                        (== more-than    100000000) (str fmt " hundred")
-                        (== more-than      1000000) (str fmt " million")
-                        (== more-than       100000) (str fmt " hundred")
-                        (== more-than         1000) (str fmt " thousand")
-                        (== more-than          100) (str fmt " hundred")
-                        :else                       fmt)]
+                       ds                          (str fmt "-")
+                       (<  num 20)                 "%s-%s"
+                       (== more-than 100000000000) (str fmt " hundred")
+                       (== more-than   1000000000) (str fmt " billion")
+                       (== more-than    100000000) (str fmt " hundred")
+                       (== more-than      1000000) (str fmt " million")
+                       (== more-than       100000) (str fmt " hundred")
+                       (== more-than         1000) (str fmt " thousand")
+                       (== more-than          100) (str fmt " hundred")
+                       :else                       fmt)]
         (cond
           (== num  0) acc
           (<  num 20) (format position acc (get one-through-twenty num))
           (>= num more-than)
-            (recur (bigint (Math/floor (mod num more-than)))
-                   (format position acc (get mapping (bigint (Math/floor (/ num more-than)))))
-                   (bigint (/ more-than 10)))
+          (recur (bigint (Math/floor (mod num more-than)))
+                 (format position acc (get mapping (bigint (Math/floor (/ num more-than)))))
+                 (bigint (/ more-than 10)))
           :else (recur num acc (bigint (/ more-than 10))))))))
 
 (defn number
   "Converts a number to its written out representation, and prepares it for presentation."
   [n]
   (when (or
-          (<  n 0)
-          (>= n 1000000000000))
+         (<  n 0)
+         (>= n 1000000000000))
     (throw (IllegalArgumentException. "Number must be >= 0 and < 1000000000000.")))
   (if (== n 0)
     "zero"
