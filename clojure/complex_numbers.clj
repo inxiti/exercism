@@ -18,7 +18,7 @@
 (defn conjugate
   "Returns the conjugate of the complex number."
   [[a b]]
-  [(Math/abs a) (- b)])
+  [a (- b)])
 
 (defn add
   "Adds two complex numbers."
